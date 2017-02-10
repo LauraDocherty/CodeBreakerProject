@@ -21,5 +21,5 @@ function setHiddenFields()
 }
 
 function setMessage(text){
-	document.getElementById('message').innerHTML(test);
+	document.getElementById('message').innerHTML(text);
 }
