@@ -35,7 +35,7 @@ function validateInput(text){
 if(text.length == 4){
 	return true;
 }
-setMessage("Guesses must be exactely 4 characters long.");
+setMessage("Guesses must be exactly 4 characters long.");
 return false
 }
 
