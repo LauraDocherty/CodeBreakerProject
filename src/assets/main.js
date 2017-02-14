@@ -10,8 +10,9 @@ function guess() {
 
     if(!validateInput(input.value)){
     	return false;
-    }
+    }else{
     	attempt.value++;
+	}
 	
     
     	
@@ -25,7 +26,7 @@ function setHiddenFields()
 	while(answer.value.length < 4){
 		answer.value = "0" + answer.value;
 	}
-	attempt = 0;
+	attempt.valur = 0;
 }
 
 function setMessage(text){
