@@ -94,9 +94,9 @@ function showAnswer(isSuccess)
 	document.getElementById('code').innerHTML = answer.value;
 	if(isSuccess)
 	{
-			document.getElementById('code').className += " " + success;
+			document.getElementById('code').className += " " + 'success';
 	}else
 	{
-		document.getElementById('code').className += " " + failure;
+		document.getElementById('code').className += " " + 'failure';
 	}
 }
