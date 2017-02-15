@@ -16,11 +16,13 @@ function guess() {
 	
     if(getResults(input.value))
 	{
-			setMessage("You Win! :)");
-			showAnswer(true);
+		setMessage("You Win! :)");
+		showAnswer(true);
+		showReplay();
     }else if(attempt.value >= 10){
 		setMessage("You Lose! :(");
 		showAnswer(false);
+		showReplay();
 	}else{
 		setMessage("Incorrect, try again.");
 	}
@@ -99,4 +101,10 @@ function showAnswer(isSuccess)
 	{
 		document.getElementById('code').className += " " + 'failure';
 	}
+}
+
+function showReplay()
+{
+	document.getElementById('guessing-div').style.display = 'none';	
+	document.getElementById('replay-div').style.display = 'block';	
 }
