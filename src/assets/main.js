@@ -4,7 +4,7 @@ let attempt = document.getElementById('attempt');
 function guess() {
     let input = document.getElementById('user-guess');
     //add functionality to guess function here
-    if( answer=='' || attempt==''){
+    if( answer.value=='' || attempt.value==''){
     	setHiddenFields();
     }
 
@@ -17,7 +17,13 @@ function guess() {
     if(getResults(input.value))
 	{
 			setMessage("You Win! :)");
-    }
+			showAnswer(true);
+    }else if(attempt.value >= 10){
+		setMessage("You Lose! :(");
+		showAnswer(false);
+	}else{
+		setMessage("Incorrect, try again.");
+	}
 }
 
 //implement new functions here
@@ -46,14 +52,17 @@ return false
 function getResults(input){
 		var correct = 0;
 		var glyphs = '';
+		
 	for(i =0; i<input.length; i++)
 	{
+
 		if(input.charAt(i) == answer.value.charAt(i))
 		{
 			glyphs = glyphs + '<span class="glyphicon glyphicon-ok"></span>';
 			correct++;
 		}else 
 		{
+
 			var isThere = false;
 			for(j=0; j< input.length; j++)
 			{
@@ -72,10 +81,22 @@ function getResults(input){
 	}
 	glyphs = glyphs + '</div></div>';
 	var res = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">' + glyphs;
-	document.getElementById('results').innerHTML = res;
+	document.getElementById('results').innerHTML = document.getElementById('results').innerHTML + res;
 	if(correct == 4)
 	{
 		return true;
 	}
 	return false;
+}
+
+function showAnswer(isSuccess)
+{
+	document.getElementById('code').innerHTML = answer.value;
+	if(isSuccess)
+	{
+			document.getElementById('code').className += " " + success;
+	}else
+	{
+		document.getElementById('code').className += " " + failure;
+	}
 }
